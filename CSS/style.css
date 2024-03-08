@@ -413,12 +413,14 @@ nav.ativo .barra-nav{
 
 
 /*----- Incio grid prjetos --------*/ 
-.portfolio{
+.portfolio {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
     margin: auto;
     grid-gap: 24px;
+    text-align: center;
+
 }
 
 .portfolio > div:nth-child(1){
@@ -436,16 +438,15 @@ nav.ativo .barra-nav{
     padding: 1rem;
     border-radius: var(--border-radios-img);
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    min-width: 350px;
     text-align: center;
-    
-}
-.trabalho.first{
+    align-items: center;
     background-color: var(--color-white);
     z-index: -2;
 }
-.trabalho.first .fundo{
-    text-align: center;
+
+.trabalho.first .fundo, .trabalho.trabalho.fift .fundo {
     position: absolute;
     background-color: #5A7E77;
     width: 93%;
@@ -455,69 +456,73 @@ nav.ativo .barra-nav{
     border-radius: var(--border-radios-img);
     z-index: -1;
 }
-.trabalho.first img{
+.trabalho.first img, .trabalho.trabalho.fift img{
     width: 100%;
-    margin: 2rem 0;
+    margin-top: 1rem;
+
 }
-.trabalho.first .conteudo{
+.trabalho.first .conteudo, .trabalho.trabalho.fift .conteudo{
     margin: 1rem;
+    margin-left: .8rem;
     text-align: left;
 }
-.trabalho.first .conteudo p{
+.trabalho.first .conteudo p, .trabalho.trabalho.fift .conteudo p{
     color: var(--color-white);
     width: 60%;
     margin-top: 1rem;
 }
 
-.trabalho .tags{
+/*------.trabalho .tags{
     width: 100%;
+    gap: 4px;
+    justify-content: space-between;
     margin: auto;
+}----*/
+
+.img-cont{
+    display: flex;
     
 }
+.trabalho img{
+    width: 35%;
+}
+.trabalho .conteudo{
+    margin: 0 0 0 .7rem;
+    text-align: left;
+   
+    
+}
+.trabalho .conteudo p{
+    color: var(--color-white);
+    width: 100%;
+    font-size: 14px;
+}
 
-.trabalho.second{
+.trabalho.second .fundo, .trabalho.tird .fundo,.trabalho.fourth .fundo {
+    text-align: center;
+    position: absolute;
+    background-color: #5A7E77;
+    width: 95%;
+    height: 70%;
+    top: 8px;
+    left: 8px;
+    border-radius: var(--border-radios-img);
+    z-index: -1;
+}
+.trabalho.second .fundo{
     background-color: #FF9900;
 }
 
-.trabalho.second .conteudo{
-    margin: 1rem;
-    text-align: left;
-}
-.trabalho.second .conteudo p{
-    color: var(--color-white);
-    width: 60%;
-    margin-top: 1rem;
-}
-
-.trabalho.tird{
+.trabalho.tird .fundo{
     background-color: #FF6440;
 }
 
-.trabalho.tird .conteudo{
-    margin: 1rem;
-    text-align: left;
-}
-.trabalho.tird .conteudo p{
-    color: var(--color-white);
-    width: 60%;
-    margin-top: 1rem;
-}
 
-.trabalho.fourth{
+.trabalho.fourth .fundo{
     background-color: #8860F4;
 }
 
-.trabalho.fourth .conteudo{
-    margin: 1rem;
-    text-align: left;
-}
-.trabalho.fourth .conteudo p{
-    color: var(--color-white);
-    width: 60%;
-    margin-top: 1rem;
-}
-
-.trabalho.fift{
+.trabalho.fift .fundo{
     background-color: #5A7E77;
 }
 
@@ -530,7 +535,34 @@ nav.ativo .barra-nav{
     width: 60%;
     margin-top: 1rem;
 }
+
+/*----- Incio meus serviços --------*/ 
+.meus-serviços .container{
+    position: flex;
+}
+
+.meus-serviços .conteudo{
+    width: 40%;
+}
+
+
 /*================= Media Queries tablete ========*/
+@media screen and (max-width: 1200px) {
+    .portfolio{
+        grid-template-columns: repeat(2, 1fr);
+       
+    }
+
+    .portfolio > div:nth-child(1){
+        grid-column: auto;
+        grid-row: 1;
+    }
+    
+    .portfolio > div:nth-child(5){
+        grid-column: auto;
+        grid-row: 1;
+    }
+}
 
 @media screen and (max-width: 980px) {
    
@@ -600,20 +632,7 @@ nav.ativo .barra-nav{
         width: 266px;
         height: 366px;
     }
-    .portfolio{
-        grid-template-columns: repeat(2, 1fr);
-       
-    }
-
-    .portfolio > div:nth-child(1){
-        grid-column: auto;
-        grid-row: 1;
-    }
     
-    .portfolio > div:nth-child(5){
-        grid-column: auto;
-        grid-row: 1;
-    }
 }
 /*================= Media Queries mobile ========*/
 
