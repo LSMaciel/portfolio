@@ -1,0 +1,706 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --color-background-temporaria:#20152C; 
+    --background-color: linear-gradient(#20152C, #06020B);
+    --gradient-color: linear-gradient(to right, #7728A7, #D84848);
+    --color-white:#E3DCE5;
+    --color-secundary:#BCA8D4;
+    --color-tag:#4B3E58;
+    --shadow-color: rgb(0,0,0,0.3);
+    --shadow-color-tag: rgb(0,0,0,0.25);
+    --tag-border-radius: 2px;
+    --border-radios-img: 8px;
+
+    --box-shadow: 0 4px 4px var(--shadow-color);
+}
+/*----- dark theme variaveis --------*/ 
+
+/*----- definições gerais --------*/ 
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    background-image: var(--background-color);
+    overflow-x: hidden;
+    color: var(--color-white);  
+}
+
+.container{
+    width: 100%;
+    padding: 2rem 6.75rem;
+}
+
+h1{
+    font-size: 46px;
+    font-weight: 800;
+    color: var(--color-white);
+    line-height: 125%;
+}
+
+h3{
+     font-size: 46px;
+     font-weight: 800;
+     letter-spacing: 90%;
+}
+p{
+    color: var(--color-secundary);
+}
+
+small{
+    font-size: 12px;
+    color: var(--color-secundary);
+
+}
+
+.primary-btn{
+    padding: 16px 70px;
+    border-radius: var(--tag-border-radius);
+    font-weight: 800;
+    color: var(--color-white);
+    background-image: var(--gradient-color);
+    margin: 1rem 0 2rem 0;
+    box-shadow: var(--shadow-color);
+    cursor: pointer;
+}
+
+
+/*----- Incio Nav --------*/ 
+header{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+}
+nav{
+    width: 100%;
+    padding: 1rem 6.75rem;
+    margin: auto;
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+}
+.barra-nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color:transparent; 
+    transition: .4s ease-in-out;
+    
+}
+
+nav.ativo .barra-nav{
+    background-color: #1C1326;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radios-img);
+    padding: 2rem 3rem;
+    font-size: 14px;
+   
+}
+
+.logo p{
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+.logo p span{
+    color: var(--color-white);
+}
+
+.menu ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/*----- Incio hero --------*/ 
+.hero{
+    display: flex;
+    padding-top: 6.75rem;
+    width: 100%;
+}
+.hero .container{
+    display: flex;
+    justify-content: space-between;
+}
+.conteudo-hero{
+    width: 50%;
+}
+.conteudo-hero h1 span{
+   background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+ .tags{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    gap: 8px;
+    margin: 0.5rem 0 2rem 0;
+}
+.tags .tag{
+    background-color:var(--color-tag) ;
+    padding: .37rem .5rem;
+    border-radius: var(--tag-border-radius);
+    box-shadow: var(--shadow-color);
+    
+}
+ .tags .tag h2{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-secundary);
+}
+
+.conteudo-hero p{
+    max-width: 80%;
+    margin-bottom: 3rem;
+}
+
+.btn-firula{
+    position: relative;
+}
+.btn-firula .comemoracao{
+    position: absolute;
+    left: -30px;
+    bottom: -10px;
+}
+
+.btn-firula .seta {
+    position: absolute;
+    width: 36px;
+    height: 27px;
+    top: -12px;
+    animation: 1s ease-in-out infinite alternate setabotão;
+}
+/*----- Incio  imagem hero --------*/ 
+.imagem-hero{
+    width: 40%;
+    position: relative;
+}
+
+.img-hero{
+    width: 366px;
+    height: 366px;
+    object-fit: cover;
+    border-radius: var(--border-radios-img);
+    box-shadow: var(--shadow-color);
+    transition: all .4s; 
+    
+}
+.imagem-hero:hover .img-hero{
+    animation: 4s ease-in-out infinite alternate tagsImgHero;
+}
+
+.imagem-hero .quadrado{
+    border-radius: 40px;
+    position: absolute;
+    z-index: -1;
+    top: -30px;
+    right: 0rex;
+    opacity: 0.3;
+    transition: 1.4s;
+    stroke-dasharray: 1560;
+    stroke-dashoffset: 1560;
+    opacity: 0;
+    animation: 3s ease-in-out 1s forwards animate-stroke;
+}
+.imagem-hero:hover .quadrado:nth-child(1){
+    animation: 4s ease-in-out infinite alternate animate-stroke;
+    opacity: .5;
+}
+
+.imagem-hero:hover .quadrado:nth-child(2){
+    animation: 4s ease-in-out 1s infinite alternate animate-stroke;
+    opacity: .5;
+}
+
+.imagem-hero .quadrado:nth-child(1){
+    width: 604px;
+    height: 490px;
+    position: absolute;
+    transition: 1s ease-in-out;
+    
+}
+.imagem-hero .quadrado:nth-child(2){
+    width: 571px;
+    height: 458px;
+    z-index: -1;  
+    transition: 1s ease-in-out;
+}
+
+
+.imagem-hero .comemoracao{
+    position: absolute;
+}
+.imagem-hero .comemoracao#comemoração-bottom{
+    transform: rotate(-90deg);
+    bottom: 58px;
+    left: 365px; 
+}
+
+.imagem-hero .comemoracao#comemoração-topo{
+    transform: rotate(90deg);
+    top: -30px;
+    left: -30px;
+}
+
+
+.tag-hero{
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    padding: 1rem 1rem;
+    position: absolute;
+    border-radius: var(--tag-border-radius);
+   box-shadow: 0 4px 4px var(--shadow-color-tag);
+      display: flex;
+   gap: 1rem;
+
+}
+
+.tag-hero h2{
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.tag-hero#tag-ux{
+    top: 45px;
+    left: -35px;
+    animation: 2s ease-in-out infinite alternate tagsImgHero;
+}
+.tag-hero#tag-frontend{
+    bottom: 60px;
+    left: 30px;
+    animation: 2s ease-in-out 1s infinite alternate tagsImgHero;
+}
+
+.tag-hero#tag-seo{
+    top: -30px;
+    right: 100px;
+    animation: 2s ease-in-out infinite alternate-reverse tagsImgHero;
+}
+
+@keyframes tagsImgHero{
+    from{
+        transform: translateY(-5px);
+        
+    }
+    to{
+        transform: translateY(0px);
+        transform: translateX(2px);
+    } 
+}
+
+@keyframes setabotão{
+    from{
+        transform: translate(0px);
+        
+        
+    }
+    to{
+        transform: translate(-3px, 4px );
+        
+    } 
+}
+
+@keyframes animate-stroke{
+    0%{
+        stroke-dashoffset: 0;
+    }
+    60%{
+        
+        stroke-dashoffset: 1560;
+    }
+    80%{
+        stroke-dashoffset: 3120; 
+    }
+    100%{
+        
+        stroke-dashoffset: 3020;
+    }
+}
+/*----- Incio  Sobre mim --------*/ 
+
+.sobre-mim .container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.img-sobre-mim{
+    width: 50%;
+}
+
+.img-sobre-mim img{
+    width: 366px;
+    height: 366px;
+    object-fit: cover;
+    border-radius: var(--border-radios-img);
+    box-shadow: var(--shadow-color);
+    transition: all .4s; 
+}
+
+.conteudo.sobre-mim{
+    width: 50%;
+}
+.conteudo.sobre-mim p{
+    margin-bottom: 3rem;
+}
+.area-dados{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.dados h3{
+    background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dados h3 span{
+    font-size: 18px;
+}
+
+/*----- Incio meus projetos --------*/ 
+.conteudo.projetos{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.conteudo.projetos h3{
+    line-height: 120%;
+    font-size: 70px;
+}
+
+.conteudo.projetos h3 span{
+    color: transparent;
+    -webkit-text-stroke-width: 1px; /* largura da borda */
+    -webkit-text-stroke-color: var(--color-white); /* cor da borda */
+    
+ 
+}
+
+.conteudo.projetos p{
+    width: 40%;
+    
+}
+
+
+/*----- Incio grid prjetos --------*/ 
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    margin: auto;
+    grid-gap: 24px;
+}
+
+.portfolio > div:nth-child(1){
+    grid-column: 1;
+    grid-row: 1 / 4;
+}
+
+.portfolio > div:nth-child(5){
+    grid-column: 3;
+    grid-row: 1 / 4;
+}
+
+.trabalho{
+    position: relative;
+    padding: 1rem;
+    border-radius: var(--border-radios-img);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    
+}
+.trabalho.first{
+    background-color: var(--color-white);
+    z-index: -2;
+}
+.trabalho.first .fundo{
+    text-align: center;
+    position: absolute;
+    background-color: #5A7E77;
+    width: 93%;
+    height: 55%;
+    top: 14px;
+    left: 14px;
+    border-radius: var(--border-radios-img);
+    z-index: -1;
+}
+.trabalho.first img{
+    width: 100%;
+    margin: 2rem 0;
+}
+.trabalho.first .conteudo{
+    margin: 1rem;
+    text-align: left;
+}
+.trabalho.first .conteudo p{
+    color: var(--color-white);
+    width: 60%;
+    margin-top: 1rem;
+}
+
+.trabalho .tags{
+    width: 100%;
+    margin: auto;
+    
+}
+
+.trabalho.second{
+    background-color: #FF9900;
+}
+
+.trabalho.second .conteudo{
+    margin: 1rem;
+    text-align: left;
+}
+.trabalho.second .conteudo p{
+    color: var(--color-white);
+    width: 60%;
+    margin-top: 1rem;
+}
+
+.trabalho.tird{
+    background-color: #FF6440;
+}
+
+.trabalho.tird .conteudo{
+    margin: 1rem;
+    text-align: left;
+}
+.trabalho.tird .conteudo p{
+    color: var(--color-white);
+    width: 60%;
+    margin-top: 1rem;
+}
+
+.trabalho.fourth{
+    background-color: #8860F4;
+}
+
+.trabalho.fourth .conteudo{
+    margin: 1rem;
+    text-align: left;
+}
+.trabalho.fourth .conteudo p{
+    color: var(--color-white);
+    width: 60%;
+    margin-top: 1rem;
+}
+
+.trabalho.fift{
+    background-color: #5A7E77;
+}
+
+.trabalho.fift .conteudo{
+    margin: 1rem;
+    text-align: left;
+}
+.trabalho.fift .conteudo p{
+    color: var(--color-white);
+    width: 60%;
+    margin-top: 1rem;
+}
+/*================= Media Queries tablete ========*/
+
+@media screen and (max-width: 980px) {
+   
+
+    .conteudo-hero {
+        width: 60%;
+    }
+   
+    .conteudo-hero h1 {
+        font-size: 38px;
+    }
+    .imagem-hero{
+        width: 40%;
+        text-align: center;
+        align-items: center;
+    }
+    .img-hero{
+        width: 266px;
+        height: 366px;
+    }
+    .tag-hero{
+        padding: .8rem .8rem;
+    }
+    
+    .tag-hero h2{
+        font-size: 12px;
+        font-weight: 600;
+        background: var(--gradient-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .btn-firula .comemoracao{
+        display: none;
+    }
+    .tag-hero img{
+        width: 18px;
+    }
+
+   
+    .tag-hero#tag-frontend{
+        bottom: 120px;
+        left: 130px;
+        animation: 2s ease-in-out 1s infinite alternate tagsImgHero;
+    }
+    
+    .tag-hero#tag-seo{
+        top: -30px;
+        right: 0px;
+        animation: 2s ease-in-out infinite alternate-reverse tagsImgHero;
+    }
+
+    .imagem-hero .comemoracao#comemoração-bottom{   
+        display: none;
+    }
+    
+    .imagem-hero .comemoracao#comemoração-topo{
+        display: none;
+    }
+
+    .img-sobre-mim{
+        width: 30%;
+    }
+    .conteudo.sobre-mim{
+        width: 50%;
+    }
+    .img-sobre-mim img{
+        width: 266px;
+        height: 366px;
+    }
+    .portfolio{
+        grid-template-columns: repeat(2, 1fr);
+       
+    }
+
+    .portfolio > div:nth-child(1){
+        grid-column: auto;
+        grid-row: 1;
+    }
+    
+    .portfolio > div:nth-child(5){
+        grid-column: auto;
+        grid-row: 1;
+    }
+}
+/*================= Media Queries mobile ========*/
+
+@media screen and (max-width: 780px) {
+    .container{
+        padding: 2rem 2rem;
+    }
+    .hero .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .conteudo-hero {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .conteudo-hero p{
+        max-width: 100%;
+    }
+    .conteudo-hero .tags{
+        justify-content: center;
+    }
+    
+    .imagem-hero{
+        width: 100%;   
+    }
+    .img-hero{
+        width: 366px;
+        height: 366px;
+    }
+    .tag-hero#tag-frontend{
+        bottom: -10px;
+        left: 230px;
+    }
+    
+    .tag-hero#tag-seo{
+        top: -10px;
+        right: 80px;
+    }
+    .tag-hero#tag-ux{
+        top: 45px;
+        left: 0px;
+    }
+
+    .sobre-mim .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .img-sobre-mim{
+        width: 100%;
+        order: 2;
+    }
+    .conteudo.sobre-mim{
+        width: 100%;
+        order: 1;
+    }
+    .img-sobre-mim img{
+        width: 100%;
+        height: 266px;
+    }
+
+    .conteudo.projetos{
+        flex-direction: column;
+    }
+
+    .conteudo.projetos h3{
+        line-height: 120%;
+        font-size: 50px;
+        margin-bottom: 2rem;
+    }
+
+    .conteudo.projetos p{
+        width: 100%;
+    }
+
+    .portfolio{
+        grid-template-columns: 1fr;
+       
+    }
+    .portfolio > div:nth-child(1){
+        grid-row: auto;
+    }
+    
+    .portfolio > div:nth-child(5){
+        grid-row: auto;
+    }
+}
+
+
+
