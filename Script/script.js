@@ -10,17 +10,14 @@ window.addEventListener('scroll',activeScroll);
 
 //Acorcdeon
 
-const acordeonItem =document.querySelector('.accordion li')
+let accordionsItems = document.querySelectorAll('.accordion li')
 
-function openAcordeon(){
-    acordeonItem.forEach(item =>{
-        item.addEventListener('click',()=>{
-            acordeonItem.forEach(item =>{
-                item.classList.remove('opened')
-            })
-            item.classList.remove('opened')
-        })
-    })
-}
+		accordionsItems.forEach(item => {
+			item.addEventListener('click', () => {
+				accordionsItems.forEach(item => {
+					item.classList.remove('opened')
+				})
 
-
+				item.classList.add('opened')
+			})
+		})

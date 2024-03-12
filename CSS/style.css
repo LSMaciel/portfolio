@@ -45,7 +45,7 @@ body {
 
 .container {
     width: 100%;
-    padding: 2rem 6.75rem;
+    padding: 4rem 6.75rem;
 }
 
 h1 {
@@ -346,7 +346,7 @@ nav.ativo .barra-nav {
         transform: translate3d(4px, -15px, 0) scaleY(1.1);
     }
 
-      80% {
+    80% {
         transition-timing-function: cubic-bezier(.215, .61, .355, 1);
         transform: translateZ(4px) scaleY(.95);
     }
@@ -380,10 +380,11 @@ nav.ativo .barra-nav {
 .divisoria {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 60%;
+    padding: -130px;
 }
 
-#divsiria-um {
+#Divisorisas {
     position: absolute;
     top: 0;
     opacity: .8;
@@ -393,16 +394,17 @@ nav.ativo .barra-nav {
     animation: 5s linear infinite dash;
 }
 
-#otadivisiro{
+#otadivisiro {
     position: absolute;
     stroke-dasharray: 30 2;
     stroke-dashoffset: 300;
     stroke-linecap: round;
     animation: 5s linear infinite dash;
 }
+
 @keyframes dash {
 
-    to{
+    to {
         stroke-dashoffset: 0;
     }
 }
@@ -625,11 +627,112 @@ nav.ativo .barra-nav {
 
 /*----- Incio meus serviços --------*/
 .meus-serviços .container {
-    position: flex;
+    display: flex;
+    justify-content: space-between;
 }
 
 .meus-serviços .conteudo {
-    width: 40%;
+    width: 30%;
+    margin-right: 30px;
+}
+
+.meus-serviços .conteudo .btn-firula {
+    margin-top: 3rem;
+}
+
+.acordeon {
+    width: 70%;
+
+}
+
+.accordion {
+    display: flex;
+    gap: 1rem;
+    margin: auto;
+}
+
+.accordion--item {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 200%;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 25rem;
+    flex: 0 0 8rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #FF6440;
+    transition-property: flex-basis, background-size, padding;
+}
+
+.accordion--item:not(.opened) {
+    background-size: 32rem;
+    padding-block: 3rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.accordion--item p {
+    color: var(--color-white);
+}
+
+.accordion--item .text-open {
+    opacity: 0;
+    transform: scale(0);
+    color: var(--color-white);
+    position: absolute;
+    bottom: 0px;
+    width: 80%;
+    transform: translate3d(0, -8rem, 0);
+    visibility: hidden;
+    transition: transform .6s ease-in-out .1s, opacity .6s ease-in-out .3s, visibility 0s;
+}
+
+.accordion--item.opened .text-open {
+    opacity: 1;
+    transform: scale(1);
+    display: block;
+    color: var(--color-white);
+    bottom: 30px;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+}
+
+.accordion--item h2 {
+    writing-mode: horizontal-tb;
+    transition-property: transform, writing-mode;
+}
+
+.accordion--item:not(.opened) h2 {
+    writing-mode: vertical-lr;
+    transition-property: transform;
+}
+
+.opened {
+    background-size: 28rem;
+    flex-basis: 28rem;
+    cursor: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion--item:hover:not(.opened) {
+    background-color: #df4a28;
+}
+
+.accordion--item:hover:not(.opened) h2 {
+    transform: scale(1.2);
+}
+
+
+.accordion--item,
+.accordion--item h2 {
+    transition: .6s ease-in-out;
 }
 
 
@@ -648,6 +751,28 @@ nav.ativo .barra-nav {
     .portfolio>div:nth-child(5) {
         grid-column: auto;
         grid-row: 1;
+    }
+
+    .meus-serviços .container {
+        flex-direction: column; 
+        
+
+    }
+
+    .meus-serviços .conteudo {
+        width: 100%;
+        margin-right: 30px;
+        text-align: center;
+    }
+   
+    
+    .acordeon {    
+        
+        width: 100%;
+        margin: auto;
+    }
+    .comemoracao{
+        display: none;
     }
 }
 
