@@ -950,4 +950,26 @@ nav.ativo .barra-nav {
     .portfolio>div:nth-child(5) {
         grid-row: auto;
     }
+
+    .accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .accordion--item {
+        min-height: 8rem;
+        flex: 0 0 8rem;
+    }
+    .opened{
+        min-height: 14rem;
+    }
+    
+    .accordion--item:not(.opened) {
+        background-size: 25rem;
+        padding-block: 3rem;
+    }
+    .accordion--item:not(.opened) h2 {
+        writing-mode: horizontal-tb;
+        
+    }
 }
