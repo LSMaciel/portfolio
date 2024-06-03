@@ -4,6 +4,8 @@
     --color-background-temporaria: #20152C;
     --background-color: linear-gradient(#20152C, #06020B);
     --gradient-color: linear-gradient(to right, #7728A7, #D84848);
+    --gradient-color-hover: linear-gradient(to right, #652091, #b42929);
+    --color-input-focus:#9c9209;
     --color-white: #E3DCE5;
     --color-secundary: #BCA8D4;
     --color-tag: #4B3E58;
@@ -13,6 +15,7 @@
     --border-radios-img: 8px;
 
     --box-shadow: 0 4px 4px var(--shadow-color);
+    --box-shadow-btn: 0 0px 6px var(--color-secundary);
 }
 
 /*----- dark theme variaveis --------*/
@@ -27,6 +30,10 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
 html {
@@ -80,7 +87,104 @@ small {
     margin: 1rem 0 2rem 0;
     box-shadow: var(--shadow-color);
     cursor: pointer;
+    transition: all .4s ease-in-out;
 }
+
+.primary-btn:hover{
+    background-image: var(--gradient-color-hover);
+    box-shadow: var(--box-shadow-btn);
+}
+
+
+.secundary-btn {
+    padding: 16px 70px;
+    border-radius: var(--tag-border-radius);
+    font-weight: 800;
+    background-color: transparent;
+    color: var(--color-input-focus);
+    border: 1px solid var(--color-input-focus);
+    margin: 1rem 0 2rem 0;
+    box-shadow: var(--shadow-color);
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+.secundary-btn:hover {
+    box-shadow:0 0px 4px #9c9209;
+}
+
+.secundary-btn img{
+    width: 22px;
+    color: var(--color-input-focus); 
+}
+
+/*----- Botão whats -----*/
+.whats{
+    width: 70px;
+    position: fixed;
+    bottom: 10px;
+    right: 8px;
+    z-index: 9999;
+    
+}
+.ani-whats{
+    position: relative;
+    
+}
+
+.ani-whats::before{
+    content: '';
+    left: -2px;
+    bottom: 4px;
+    background-color: none;
+    border: 10px solid var(--color-tag);
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    border-radius: 50%;
+    animation: alertabtn 1.3s ease-in-out infinite alternate;
+    z-index: -1;
+    
+}
+
+@keyframes alertabtn {
+    from {
+        transform: scale(1);
+        opacity: 0.2; 
+    }
+
+    to {
+        transform: scale(1.3);
+        opacity: 1; 
+    }
+    
+}
+
+input, textarea{
+    background: var(--color-white); 
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+    display: block;
+    align-items: center; 
+    border: 2px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    
+    
+ }
+ input:focus, input:hover, textarea:hover{
+     outline: none;
+     border: 2px solid;
+     border-color: var(--color-input-focus);
+     box-shadow: 0 0px 12px var(--color-input-focus);
+ }
+ label{
+     font-size: 16px;
+     color: var(--color-white);
+     font-weight: 500;
+ }
+
 
 
 /*----- Incio Nav --------*/
@@ -130,11 +234,32 @@ nav.ativo .barra-nav {
     color: var(--color-white);
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+}
+
 .menu ul {
     display: flex;
     justify-content: space-between;
     gap: 40px;
 }
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 300ms ease;
+    background-color: var(--color-white);
+    border-radius: 2px;
+}
+
 
 /*----- Incio hero --------*/
 .hero {
@@ -187,7 +312,10 @@ nav.ativo .barra-nav {
 }
 
 .btn-firula {
+    display: flex;
+
     position: relative;
+    gap: 2rem;
 }
 
 .btn-firula .comemoracao {
@@ -378,15 +506,11 @@ nav.ativo .barra-nav {
 
 /*----- Incio  divisoria --------*/
 .divisoria {
-    position: relative;
     width: 100%;
     height: 60%;
-    padding: -130px;
 }
 
 #Divisorisas {
-    position: absolute;
-    top: 0;
     opacity: .8;
     stroke-dasharray: 30 2;
     stroke-dashoffset: 300;
@@ -495,15 +619,14 @@ nav.ativo .barra-nav {
     margin: auto;
     grid-gap: 24px;
     text-align: center;
-
 }
 
-.portfolio>div:nth-child(1) {
+.portfolio > a:nth-child(1) {
     grid-column: 1;
     grid-row: 1 / 4;
 }
 
-.portfolio>div:nth-child(5) {
+.portfolio > a:nth-child(5) {
     grid-column: 3;
     grid-row: 1 / 4;
 }
@@ -519,18 +642,23 @@ nav.ativo .barra-nav {
     align-items: center;
     background-color: var(--color-white);
     z-index: -2;
+    cursor: pointer;
 }
 
 .trabalho.first .fundo,
 .trabalho.trabalho.fift .fundo {
     position: absolute;
-    background-color: #5A7E77;
     width: 93%;
     height: 55%;
     top: 14px;
     left: 14px;
     border-radius: var(--border-radios-img);
     z-index: -1;
+    cursor: pointer;
+}
+
+.trabalho.first .fundo{
+background-color: #5A7E77;
 }
 
 .trabalho.first img,
@@ -590,16 +718,22 @@ nav.ativo .barra-nav {
     position: absolute;
     background-color: #5A7E77;
     width: 95%;
-    height: 70%;
+    height: 75%;
     top: 8px;
     left: 8px;
     border-radius: var(--border-radios-img);
     z-index: -1;
 }
 
-.trabalho.second .fundo {
-    background-color: #FF9900;
+
+.trabalho.second .fundo{
+    background-color: #ec4074;
 }
+
+.trabalho.second .fundo:hover{
+    background-color: #168492;
+}
+
 
 .trabalho.tird .fundo {
     background-color: #FF6440;
@@ -611,7 +745,7 @@ nav.ativo .barra-nav {
 }
 
 .trabalho.fift .fundo {
-    background-color: #5A7E77;
+    background-color: #FF9900;
 }
 
 .trabalho.fift .conteudo {
@@ -623,6 +757,11 @@ nav.ativo .barra-nav {
     color: var(--color-white);
     width: 60%;
     margin-top: 1rem;
+}
+
+.trabalho.tird img,
+.trabalho.fourth img {
+    width: 60px;
 }
 
 /*----- Incio meus serviços --------*/
@@ -735,6 +874,60 @@ nav.ativo .barra-nav {
     transition: .6s ease-in-out;
 }
 
+/*----- Nossos contato --------*/
+.contato{
+    background: var(--background-color);
+}
+
+.contato .container{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: center;
+}
+
+.contato .conteudo-contato{
+    padding-right: 6rem;
+    color: var(--color-white);
+}
+
+.contato .conteudo-contato small{
+    color: var(--color-white);
+}
+.contato .conteudo-contato h3{
+    font-size: 36px;
+    margin-bottom: 1rem;
+}
+.contato .conteudo-contato h3 span{
+    color: var(--color-background-temporaria);
+}
+.contato .conteudo-contato p{
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.primary-btn.formulario{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.conteudo-contato .email, .conteudo-contato .telefone {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: 2rem;
+    
+}
+.conteudo-contato .email p, .conteudo-contato .telefone p{
+    font-size: 18px;
+    
+}
+.conteudo-contato img{
+    color: var(--color-white);
+    width: 30px;
+    height: 30px;
+}
+
+
 
 /*================= Media Queries tablete ========*/
 @media screen and (max-width: 1200px) {
@@ -754,8 +947,8 @@ nav.ativo .barra-nav {
     }
 
     .meus-serviços .container {
-        flex-direction: column; 
-        
+        flex-direction: column;
+
 
     }
 
@@ -764,14 +957,15 @@ nav.ativo .barra-nav {
         margin-right: 30px;
         text-align: center;
     }
-   
-    
-    .acordeon {    
-        
+
+
+    .acordeon {
+
         width: 100%;
         margin: auto;
     }
-    .comemoracao{
+
+    .comemoracao {
         display: none;
     }
 }
@@ -857,6 +1051,71 @@ nav.ativo .barra-nav {
 /*================= Media Queries mobile ========*/
 
 @media screen and (max-width: 780px) {
+    nav {
+        padding: 0;
+    }
+
+    .barra-nav {
+        padding: 2rem 1rem;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        transition: .4s ease-in-out;
+
+    }
+
+    nav.ativo .barra-nav {
+        background-color: #1C1326;
+        box-shadow: var(--box-shadow);
+        border-radius: 0;
+        padding: 2rem 1rem;
+
+
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: var(--color-background-temporaria);
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .menu ul {
+        display: block;
+        margin-top: 4rem;
+    }
+
+    .menu ul li {
+        margin: 4rem 0;
+
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
     .container {
         padding: 2rem 2rem;
     }
@@ -943,12 +1202,14 @@ nav.ativo .barra-nav {
 
     }
 
-    .portfolio>div:nth-child(1) {
+    .portfolio>a:nth-child(1) {
         grid-row: auto;
+        grid-column: 1;
     }
-
-    .portfolio>div:nth-child(5) {
+  
+    .portfolio>a:nth-child(5) {
         grid-row: auto;
+        grid-column: 1;
     }
 
     .accordion {
@@ -956,20 +1217,23 @@ nav.ativo .barra-nav {
         flex-direction: column;
         gap: 1rem;
     }
+
     .accordion--item {
         min-height: 8rem;
         flex: 0 0 8rem;
     }
-    .opened{
+
+    .opened {
         min-height: 14rem;
     }
-    
+
     .accordion--item:not(.opened) {
         background-size: 25rem;
         padding-block: 3rem;
     }
+
     .accordion--item:not(.opened) h2 {
         writing-mode: horizontal-tb;
-        
+
     }
 }
